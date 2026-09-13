@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-09-13T19:34:53.828162+00:00",
+  "generated_at": "2026-09-13T21:15:47.920312+00:00",
   "people": [
     {
       "person": "dan",
       "display_name": "AgentAyers",
       "tabs": {
         "lucky": {
-          "device_label": "pixel9a_kanto_lucky",
-          "scanned_at": "2026-09-13T19:29:20.495531+00:00",
+          "device_label": "dan-lucky",
+          "scanned_at": "2026-09-13T21:13:06.405605+00:00",
           "stats": {
-            "have": 436,
-            "need": 549,
-            "needs_review": 43,
-            "total": 985
+            "have": 437,
+            "need": 550,
+            "needs_review": 21,
+            "total": 987
           }
         }
       }
@@ -22,12 +22,12 @@
       "display_name": "Halieatus",
       "tabs": {
         "lucky": {
-          "device_label": "mk_lucky",
-          "scanned_at": "2026-09-13T19:34:53.828162+00:00",
+          "device_label": "mk-lucky",
+          "scanned_at": "2026-09-13T21:15:47.920312+00:00",
           "stats": {
             "have": 407,
             "need": 594,
-            "needs_review": 10,
+            "needs_review": 9,
             "total": 1001
           }
         }

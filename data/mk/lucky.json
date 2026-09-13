@@ -2,12 +2,12 @@
   "person": "mk",
   "display_name": "Halieatus",
   "tab": "lucky",
-  "device_label": "mk_lucky",
-  "scanned_at": "2026-09-13T19:34:53.828162+00:00",
+  "device_label": "mk-lucky",
+  "scanned_at": "2026-09-13T21:15:47.920312+00:00",
   "stats": {
     "have": 407,
     "need": 594,
-    "needs_review": 10,
+    "needs_review": 9,
     "total": 1001
   },
   "have": [
