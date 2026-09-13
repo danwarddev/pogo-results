@@ -1,4 +1,37 @@
 {
-  "generated_at": null,
-  "people": []
+  "generated_at": "2026-09-13T19:34:53.828162+00:00",
+  "people": [
+    {
+      "person": "dan",
+      "display_name": "AgentAyers",
+      "tabs": {
+        "lucky": {
+          "device_label": "pixel9a_kanto_lucky",
+          "scanned_at": "2026-09-13T19:29:20.495531+00:00",
+          "stats": {
+            "have": 436,
+            "need": 549,
+            "needs_review": 43,
+            "total": 985
+          }
+        }
+      }
+    },
+    {
+      "person": "mk",
+      "display_name": "Halieatus",
+      "tabs": {
+        "lucky": {
+          "device_label": "mk_lucky",
+          "scanned_at": "2026-09-13T19:34:53.828162+00:00",
+          "stats": {
+            "have": 407,
+            "need": 594,
+            "needs_review": 10,
+            "total": 1001
+          }
+        }
+      }
+    }
+  ]
 }
