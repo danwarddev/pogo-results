@@ -11,8 +11,8 @@ no other personal data. Those stay in the private `pogo-data` repo.
 
 ## Live site
 
-Once GitHub Pages is enabled for this repo (Settings → Pages → Source:
-Deploy from a branch → `main` → `/ (root)`), it'll be reachable at:
+GitHub Pages is enabled (Settings → Pages → Source: Deploy from a branch →
+`main` → `/ (root)`):
 
 ```
 https://danwarddev.github.io/pogo-results/
@@ -24,16 +24,16 @@ https://danwarddev.github.io/pogo-results/
 
 ```json
 {
-  "generated_at": "2026-09-13T00:00:00Z",
+  "generated_at": "2026-09-13T21:13:06Z",
   "people": [
     {
       "person": "dan",
-      "display_name": "Dan",
+      "display_name": "AgentAyers",
       "tabs": {
         "lucky": {
-          "device_label": "pixel9a_kanto_lucky",
-          "scanned_at": "2026-09-13T00:00:00Z",
-          "stats": { "have": 434, "need": 553, "needs_review": 34, "total": 987 }
+          "device_label": "dan-lucky",
+          "scanned_at": "2026-09-13T21:13:06Z",
+          "stats": { "have": 437, "need": 550, "needs_review": 21, "total": 987 }
         }
       }
     }
@@ -46,17 +46,19 @@ https://danwarddev.github.io/pogo-results/
 ```json
 {
   "person": "dan",
-  "display_name": "Dan",
+  "display_name": "AgentAyers",
   "tab": "lucky",
-  "device_label": "pixel9a_kanto_lucky",
-  "scanned_at": "2026-09-13T00:00:00Z",
-  "stats": { "have": 434, "need": 553, "needs_review": 34, "total": 987 },
+  "device_label": "dan-lucky",
+  "scanned_at": "2026-09-13T21:13:06Z",
+  "stats": { "have": 437, "need": 550, "needs_review": 21, "total": 987 },
   "have": [1, 2, 3],
   "need": [4, 5, 6]
 }
 ```
 
 `tab` is one of `lucky` / `shiny` / `xxl` (matches the Pokédex tab scanned).
+`device_label` is informational only (auto-derived from the source video's
+filename by pogo-data's auto-calibration — not a stable per-device id).
 `have`/`need` are plain dex-number arrays — no zero-padding, matching the
 format the in-game search bar accepts as a comma-separated OR filter.
 
@@ -65,12 +67,17 @@ the previous one for that person/tab (history isn't tracked here by design).
 
 ## Publishing a new scan
 
-From a `pogo-data` checkout, after running the extraction pipeline:
+From a `pogo-data` checkout:
 
 ```
-python scripts/lucky_lists.py <video> <device_label> \
-    --person dan --tab lucky --publish-dir /path/to/pogo-results
+python scripts/lucky_lists.py <video> \
+    --person dan --display-name AgentAyers --tab lucky --publish-dir /path/to/pogo-results
 ```
+
+Grid geometry auto-calibrates from the video itself — no separate
+calibration step or device label needed. `--display-name` (an alias, an
+in-game avatar name works well) is required alongside `--publish-dir`;
+it's never derived automatically from `--person`.
 
 That writes `data/dan/lucky.json` and updates `data/manifest.json` in the
 given directory. Commit and push this repo to publish:
