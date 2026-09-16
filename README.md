@@ -7,7 +7,9 @@ plain HTML/CSS/JS reads JSON files in `data/`, served via GitHub Pages.
 Deliberately public-but-unlisted: not indexed or discoverable, but anyone
 with the exact URL can view it. This repo holds **only** generated scan
 results (dex numbers + stats) — no capture video, no calibration profiles,
-no other personal data. Those stay in the private `pogo-data` repo.
+no other personal data. Those stay in the private `pogo-data` repo, along
+with the hand-maintained correction files composed into these results (see
+"Manual corrections" below).
 
 ## Live site
 
@@ -41,7 +43,8 @@ https://danwarddev.github.io/pogo-results/
 }
 ```
 
-`data/<person>/<tab>.json` — one scan's full result:
+`data/<person>/<tab>.json` — one scan's full result, **with manual
+corrections applied** (see "Manual corrections" below):
 
 ```json
 {
@@ -50,7 +53,7 @@ https://danwarddev.github.io/pogo-results/
   "tab": "lucky",
   "device_label": "dan-lucky",
   "scanned_at": "2026-09-13T21:13:06Z",
-  "stats": { "have": 437, "need": 550, "needs_review": 21, "total": 987 },
+  "stats": { "have": 437, "need": 550, "needs_review": 21, "total": 987, "corrected": 2 },
   "have": [1, 2, 3],
   "need": [4, 5, 6]
 }
@@ -61,9 +64,18 @@ https://danwarddev.github.io/pogo-results/
 filename by pogo-data's auto-calibration — not a stable per-device id).
 `have`/`need` are plain dex-number arrays — no zero-padding, matching the
 format the in-game search bar accepts as a comma-separated OR filter.
+`stats.corrected` is how many dex numbers a manual correction changed from
+the raw scan (flipped state, or added outright) — `0` when no corrections
+file existed for that person/tab.
 
 Only the **latest** scan per person/tab is kept; a new publish overwrites
 the previous one for that person/tab (history isn't tracked here by design).
+
+`data/<person>/<tab>.raw.json` also exists alongside each published scan —
+the scan's result *before* corrections, kept only so pogo-data can
+re-apply an edited corrections file later without re-running OCR on the
+video. It's an internal pipeline artifact: this site's `app.js` never
+fetches it, and it isn't part of the schema above.
 
 ## Publishing a new scan
 
@@ -79,12 +91,35 @@ calibration step or device label needed. `--display-name` (an alias, an
 in-game avatar name works well) is required alongside `--publish-dir`;
 it's never derived automatically from `--person`.
 
-That writes `data/dan/lucky.json` and updates `data/manifest.json` in the
-given directory. Commit and push this repo to publish:
+That writes `data/dan/lucky.raw.json` (the scan, untouched), applies any
+existing corrections for `dan`/`lucky`, and writes the corrected
+`data/dan/lucky.json` + updates `data/manifest.json` in the given
+directory. Commit and push this repo to publish:
 
 ```
 git add data && git commit -m "Publish dan lucky scan" && git push
 ```
+
+## Manual corrections
+
+`pogo-data` generates a scan from video, but it's not always right, and it
+can't cover a dex number the video never scrolled past. `pogo-data` keeps a
+hand-maintained override file per person/tab
+(`corrections/<person>/<tab>.json` in that repo — see its README) for
+exactly that: force a dex number to `have` or `need` regardless of what the
+scan found. The published `data/<person>/<tab>.json` here is always the
+scan **composed with** whatever that file said at publish time.
+
+After editing a correction, you don't need a new video capture — from a
+`pogo-data` checkout:
+
+```
+python scripts/apply_corrections.py --publish-dir /path/to/pogo-results --person dan --tab lucky
+```
+
+This re-applies the corrections file to the existing `lucky.raw.json` here
+and rewrites `lucky.json` + `manifest.json`. Commit and push the same way
+as a fresh scan.
 
 ## Comparison view
 
