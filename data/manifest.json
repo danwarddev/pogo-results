@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T21:13:06.405605+00:00",
+  "generated_at": "2026-09-13T21:15:47.920312+00:00",
   "people": [
     {
       "person": "dan",
@@ -26,10 +26,11 @@
           "device_label": "mk-lucky",
           "scanned_at": "2026-09-13T21:15:47.920312+00:00",
           "stats": {
-            "have": 407,
-            "need": 594,
+            "have": 409,
+            "need": 592,
             "needs_review": 9,
-            "total": 1001
+            "total": 1001,
+            "corrected": 2
           }
         }
       }
