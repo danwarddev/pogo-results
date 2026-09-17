@@ -26,11 +26,11 @@
           "device_label": "mk-lucky",
           "scanned_at": "2026-09-13T21:15:47.920312+00:00",
           "stats": {
-            "have": 411,
-            "need": 590,
+            "have": 408,
+            "need": 593,
             "needs_review": 9,
             "total": 1001,
-            "corrected": 4
+            "corrected": 7
           }
         }
       }
