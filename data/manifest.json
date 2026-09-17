@@ -9,11 +9,11 @@
           "device_label": "dan-lucky",
           "scanned_at": "2026-09-13T21:13:06.405605+00:00",
           "stats": {
-            "have": 439,
-            "need": 548,
+            "have": 451,
+            "need": 550,
             "needs_review": 0,
-            "total": 987,
-            "corrected": 6
+            "total": 1001,
+            "corrected": 20
           }
         }
       }
