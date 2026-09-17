@@ -9,11 +9,11 @@
           "device_label": "dan-lucky",
           "scanned_at": "2026-09-13T21:13:06.405605+00:00",
           "stats": {
-            "have": 439,
-            "need": 548,
+            "have": 441,
+            "need": 546,
             "needs_review": 21,
             "total": 987,
-            "corrected": 2
+            "corrected": 4
           }
         }
       }
@@ -26,11 +26,11 @@
           "device_label": "mk-lucky",
           "scanned_at": "2026-09-13T21:15:47.920312+00:00",
           "stats": {
-            "have": 409,
-            "need": 592,
+            "have": 411,
+            "need": 590,
             "needs_review": 9,
             "total": 1001,
-            "corrected": 2
+            "corrected": 4
           }
         }
       }
