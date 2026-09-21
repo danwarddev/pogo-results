@@ -55,7 +55,8 @@ corrections applied** (see "Manual corrections" below):
   "scanned_at": "2026-09-13T21:13:06Z",
   "stats": { "have": 437, "need": 550, "needs_review": 21, "total": 987, "corrected": 2 },
   "have": [1, 2, 3],
-  "need": [4, 5, 6]
+  "need": [4, 5, 6],
+  "still_want": [60, 133]
 }
 ```
 
@@ -67,6 +68,12 @@ format the in-game search bar accepts as a comma-separated OR filter.
 `stats.corrected` is how many dex numbers a manual correction changed from
 the raw scan (flipped state, or added outright) — `0` when no corrections
 file existed for that person/tab.
+`still_want` is dex numbers this person genuinely `have` (not a correction
+of a wrong read) but still wants another Lucky trade of — a split evolution
+line's shared base/mid stage where they've only claimed one branch (Poliwag,
+Oddish/Gloom, Eevee, ...), or just a wanted duplicate. It never affects
+`have`/`need` or the stats — the solo view above ignores it entirely — see
+"Comparison view" below for the one place it's read.
 
 Only the **latest** scan per person/tab is kept; a new publish overwrites
 the previous one for that person/tab (history isn't tracked here by design).
@@ -136,3 +143,10 @@ their shot at Lucky for that species is already spent):
    already has it keeping a spare copy around to trade the other.
 3. **Neither needs** — safe to toss/deprioritize; no Lucky value left for
    either of you on that species.
+
+A person's `still_want` list (see the data schema above) is folded into
+"still needs" for this bucketing only — it never touches the numbers or
+stats shown on the solo view. Someone with a `have` Eevee they've put
+`still_want`-listed still shows up wanting a mirror trade for it, and a
+number stays out of "neither needs" if either person still wants it, even
+though both already `have` it.

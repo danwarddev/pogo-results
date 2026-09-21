@@ -262,15 +262,21 @@ function renderCompare() {
 function renderComparison(scanA, scanB) {
   const nameA = scanA.display_name || scanA.person;
   const nameB = scanB.display_name || scanB.person;
-  const needA = new Set(scanA.need);
-  const needB = new Set(scanB.need);
   const haveA = new Set(scanA.have);
   const haveB = new Set(scanB.have);
+  // "wanted" = still needs a Lucky trade for this species, either because
+  // the scan says need, or because a still_want correction says so despite
+  // already having one (a split-evolution branch not yet claimed, or a
+  // wanted duplicate) -- see README's "Comparison view" section.
+  const wantedA = union(scanA.need, scanA.still_want);
+  const wantedB = union(scanB.need, scanB.still_want);
 
-  const bothNeed = intersect(needA, needB);
-  const onlyANeeds = intersect(needA, haveB);
-  const onlyBNeeds = intersect(needB, haveA);
-  const neitherNeeds = intersect(haveA, haveB);
+  const bothNeed = intersect(wantedA, wantedB);
+  // Subtract wantedB/wantedA so a number both people still want (already
+  // in bothNeed) doesn't also land in one of the "only" buckets below.
+  const onlyANeeds = intersect(difference(wantedA, wantedB), haveB);
+  const onlyBNeeds = intersect(difference(wantedB, wantedA), haveA);
+  const neitherNeeds = difference(intersect(haveA, haveB), union(wantedA, wantedB));
 
   const frag = el("div", {});
   frag.appendChild(
@@ -284,7 +290,7 @@ function renderComparison(scanA, scanB) {
   frag.appendChild(
     copyCard({
       title: "Both still need — top priority",
-      note: "Neither has a Lucky yet. A mirror trade here gives both of you a shot.",
+      note: "Neither has a Lucky yet (or wants another for a different evolution branch). A mirror trade here gives both of you a shot.",
       numbers: bothNeed,
       cls: "both-need",
     })
@@ -317,6 +323,18 @@ function renderComparison(scanA, scanB) {
 
 function intersect(setA, setB) {
   return [...setA].filter((x) => setB.has(x)).sort((a, b) => a - b);
+}
+
+function union(...iterables) {
+  const out = new Set();
+  for (const it of iterables) {
+    for (const x of it || []) out.add(x);
+  }
+  return out;
+}
+
+function difference(setA, setB) {
+  return new Set([...setA].filter((x) => !setB.has(x)));
 }
 
 function copyCard({ title, note, numbers, cls }) {
