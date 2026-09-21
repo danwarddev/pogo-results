@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T18:58:03.555181+00:00",
+  "generated_at": "2026-09-19T23:38:58.478050+00:00",
   "people": [
     {
       "person": "dan",
@@ -26,11 +26,11 @@
           "device_label": "halieatus-2026-09-19",
           "scanned_at": "2026-09-19T23:38:58.478050+00:00",
           "stats": {
-            "have": 469,
-            "need": 532,
+            "have": 475,
+            "need": 526,
             "needs_review": 16,
             "total": 1001,
-            "corrected": 3
+            "corrected": 9
           }
         }
       }
