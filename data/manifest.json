@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-09-19T23:44:49.890292+00:00",
+  "generated_at": "2026-09-21T18:58:03.555181+00:00",
   "people": [
     {
       "person": "dan",
       "display_name": "AgentAyers",
       "tabs": {
         "lucky": {
-          "device_label": "agentayers-2026-09-19",
-          "scanned_at": "2026-09-19T23:44:49.890292+00:00",
+          "device_label": "agentayers-2026-09-21-1",
+          "scanned_at": "2026-09-21T18:58:03.555181+00:00",
           "stats": {
-            "have": 472,
-            "need": 529,
-            "needs_review": 14,
-            "total": 1001,
+            "have": 512,
+            "need": 490,
+            "needs_review": 10,
+            "total": 1002,
             "corrected": 0
           }
         }
