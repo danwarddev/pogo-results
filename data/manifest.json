@@ -9,11 +9,11 @@
           "device_label": "agentayers-2026-09-21-1",
           "scanned_at": "2026-09-21T18:58:03.555181+00:00",
           "stats": {
-            "have": 519,
-            "need": 483,
+            "have": 524,
+            "need": 478,
             "needs_review": 10,
             "total": 1002,
-            "corrected": 7
+            "corrected": 12
           }
         }
       }
@@ -26,11 +26,11 @@
           "device_label": "halieatus-2026-09-19",
           "scanned_at": "2026-09-19T23:38:58.478050+00:00",
           "stats": {
-            "have": 478,
-            "need": 523,
+            "have": 485,
+            "need": 516,
             "needs_review": 16,
             "total": 1001,
-            "corrected": 12
+            "corrected": 17
           }
         }
       }
