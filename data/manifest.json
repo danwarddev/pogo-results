@@ -9,11 +9,11 @@
           "device_label": "agentayers-2026-09-21-1",
           "scanned_at": "2026-09-21T18:58:03.555181+00:00",
           "stats": {
-            "have": 533,
-            "need": 469,
+            "have": 543,
+            "need": 459,
             "needs_review": 10,
             "total": 1002,
-            "corrected": 21
+            "corrected": 31
           }
         }
       }
