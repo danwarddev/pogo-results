@@ -27,10 +27,10 @@
           "scanned_at": "2026-09-19T23:38:58.478050+00:00",
           "stats": {
             "have": 516,
-            "need": 485,
+            "need": 486,
             "needs_review": 16,
-            "total": 1001,
-            "corrected": 46
+            "total": 1002,
+            "corrected": 47
           }
         }
       }
