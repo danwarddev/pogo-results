@@ -101,10 +101,11 @@ it's never derived automatically from `--person`.
 That writes `data/dan/lucky.raw.json` (the scan, untouched), applies any
 existing corrections for `dan`/`lucky`, and writes the corrected
 `data/dan/lucky.json` + updates `data/manifest.json` in the given
-directory. Commit and push this repo to publish:
+directory. Commit and push this repo straight to `main` to publish (no
+branch or PR — Pages serves the site from `main`):
 
 ```
-git add data && git commit -m "Publish dan lucky scan" && git push
+git add data && git commit -m "Publish dan lucky scan" && git push origin main
 ```
 
 ## Manual corrections
