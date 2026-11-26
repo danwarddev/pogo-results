@@ -26,11 +26,11 @@
           "device_label": "halieatus-2026-09-19",
           "scanned_at": "2026-09-19T23:38:58.478050+00:00",
           "stats": {
-            "have": 668,
-            "need": 334,
+            "have": 669,
+            "need": 333,
             "needs_review": 14,
             "total": 1002,
-            "corrected": 199
+            "corrected": 200
           }
         }
       }
